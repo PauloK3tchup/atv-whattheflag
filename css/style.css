@@ -1,0 +1,7 @@
+@font-face {
+  font-family: Delta;
+  src: url("undertale-deltarune-text-font-extended.otf") format("opentype");
+}
+img {
+  width: 10%;
+}

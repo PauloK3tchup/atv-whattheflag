@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WHAT THE FLAG??</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <section id="jogar" class="jogar">
+        <h1>BEM VINDO AO JOGO!!</h1>
+        <button onclick="iniciarJogo()" id="jogar">Jogar</button>
+      </section>
+      <section id="moedaSEC" class="moeda">
+        <p class="tempo" id="tempo"></p>
+        <p class="dica" id="dica">TENTE ADIVINHAR!</p>
+        <h1 id="pergunta"></h1>
+        <p class="tents" id="tents"></p>
+        <div class="botoes">
+          <ul>
+            <li>
+              <button onclick="trocaNum(0)">
+                <img src="src/png/031-italy.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(1)">
+                <img src="src/png/025-argentina.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(2)">
+                <img src="src/png/027-united states of america.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(3)">
+                <img src="src/png/037-japan.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(4)">
+                <img src="src/png/033-china.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(5)">
+                <img src="src/png/038-south korea.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(6)">
+                <img src="src/png/026-india.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(7)">
+                <img src="src/png/018-philippines.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(8)">
+                <img src="src/png/028-thailand.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(9)">
+                <img src="src/png/012-egypt.png" alt="" />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="bandeiraSEC" class="bandeira">
+        <p class="tempo" id="tempo"></p>
+        <p class="dica" id="dica">TENTE ADIVINHAR!</p>
+        <h1 id="pergunta"></h1>
+        <p class="tents" id="tents"></p>
+        <div class="botoes">
+          <ul>
+            <li>
+              <button onclick="trocaNum(0)">Itália</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(1)">Argentina</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(2)">Estados Unidos</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(3)">Japão</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(4)">China</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(5)">Coréia do Sul</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(6)">Índia</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(7)">Filipinas</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(8)">Tailândia</button>
+            </li>
+            <li>
+              <button onclick="trocaNum(9)">Egito</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="idiomaSEC" class="idioma">
+        <p class="tempo" id="tempo"></p>
+        <p class="dica" id="dica">TENTE ADIVINHAR!</p>
+        <h1 id="pergunta"></h1>
+        <p class="tents" id="tents"></p>
+        <div class="botoes">
+          <ul>
+            <li>
+              <button onclick="trocaNum(0)">
+                <img src="src/png/031-italy.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(1)">
+                <img src="src/png/025-argentina.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(2)">
+                <img src="src/png/027-united states of america.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(3)">
+                <img src="src/png/037-japan.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(4)">
+                <img src="src/png/033-china.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(5)">
+                <img src="src/png/038-south korea.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(6)">
+                <img src="src/png/026-india.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(7)">
+                <img src="src/png/018-philippines.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(8)">
+                <img src="src/png/028-thailand.png" alt="" />
+              </button>
+            </li>
+            <li>
+              <button onclick="trocaNum(9)">
+                <img src="src/png/012-egypt.png" alt="" />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <script>
+        let sec = Math.floor(Math.random() * 3) + 1;
+        let guia = {
+          pais: "Teste",
+          moeda: "Moeda",
+          idioma: "Idioma",
+          bandeira: "Bandeira",
+        };
+
+        let m = [
+          {
+            pais: "Itália",
+            moeda: "Euro",
+            idioma: "Italiano",
+          },
+          {
+            pais: "Argentina",
+            moeda: "Peso",
+            idioma: "Espanhol",
+          },
+          {
+            pais: "Estados Unidos",
+            moeda: "Dólar",
+            idioma: "Inglês",
+          },
+          {
+            pais: "Japão",
+            moeda: "Iene",
+            idioma: "Japonês",
+          },
+          {
+            pais: "China",
+            moeda: "Yuan",
+            idioma: "Mandarin",
+          },
+          {
+            pais: "Coréia do Sul",
+            moeda: "Won",
+            idioma: "Coreano",
+          },
+          {
+            pais: "Índia",
+            moeda: "Rupia",
+            idioma: "Hindi",
+          },
+          {
+            pais: "Filipinas",
+            moeda: "Peso Filipino",
+            idioma: "Filipino",
+          },
+          {
+            pais: "Tailândia",
+            moeda: "Baht",
+            idioma: "Tainlandês",
+          },
+          {
+            pais: "Egito",
+            moeda: "Libra",
+            idioma: "Árabe",
+          },
+        ];
+
+        let numero = Math.floor(Math.random() * 10);
+        let dica = document.getElementById("dica");
+        let tempo = document.getElementById("tempo");
+        let tents = document.getElementById("tents");
+        let pergunta = document.getElementById("pergunta");
+        let s = document.getElementById("jogar");
+        let s2 = document.getElementById("moedaSEC");
+        let s3 = document.getElementById("bandeiraSEC");
+        let s4 = document.getElementById("idiomaSEC");
+        s2.style.display = "none";
+        s3.style.display = "none";
+        s4.style.display = "none";
+        let acertos = 0;
+        let t = 1000;
+        let segundos = 30;
+        acabou = false;
+
+        function iniciarJogo() {
+          sec = Math.floor(Math.random() * 3) + 1;
+          switch (sec) {
+            case 1:
+              s.style.display = "none";
+              s2.style.display = "block";
+              s3.style.display = "none";
+              s4.style.display = "none";
+              break;
+            case 2:
+              s.style.display = "none";
+              s2.style.display = "noone";
+              s3.style.display = "block";
+              s4.style.display = "none";
+              break;
+            case 3:
+              s.style.display = "none";
+              s2.style.display = "none";
+              s3.style.display = "none";
+              s4.style.display = "block";
+              break;
+          }
+          let contagem = setTimeout(menosUm, t);
+          tempo.innerText = "00:" + segundos;
+          console.log(sec);
+          pergunta.innerText = "BANDEIRA DO PAÍS: " + m[numero].pais;
+        }
+
+        function trocaNum(a) {
+          if (!acabou) {
+            if (a != numero) {
+              dica.innerText = "ERRADO!";
+              t -= 200;
+            } else {
+              dica.innerText = "CORRETO!!";
+              numero = Math.floor(Math.random() * 10);
+              console.log(numero);
+              acertos++;
+              sec = Math.floor(Math.random() * 3) + 1;
+              switch (sec) {
+                case 1:
+                  s.style.display = "none";
+                  s2.style.display = "block";
+                  s3.style.display = "none";
+                  s4.style.display = "none";
+                  break;
+                case 2:
+                  s.style.display = "none";
+                  s2.style.display = "noone";
+                  s3.style.display = "block";
+                  s4.style.display = "none";
+                  break;
+                case 3:
+                  s.style.display = "none";
+                  s2.style.display = "none";
+                  s3.style.display = "none";
+                  s4.style.display = "block";
+                  break;
+              }
+              tents.innerText = "FALTAM [" + (3 - acertos) + "] ACERTOS!!!";
+              pergunta.innerText = "BANDEIRA DO PAÍS: " + m[numero].pais;
+              if (sec == 2) {
+                pergunta.innerText =
+                  "DE QUE PAÍS É A MOEDA: " + m[numero].moeda;
+              } else if (sec == 3) {
+                pergunta.innerText =
+                  "QUE PAÍS SE FALA O IDIOMA: " + m[numero].idioma;
+              }
+              if (acertos >= 3) {
+                acabou = true;
+                dica.innerText = "VENCEU!!!";
+                segundos = 0;
+                tempo.innerText = "00:0" + segundos;
+                pergunta.innerText = "PARABÉNS";
+              }
+            }
+          }
+        }
+
+        function musiPam() {
+          document.getElementById("bigshot").play();
+        }
+
+        function menosUm() {
+          if (!acabou) {
+            if (segundos > 0) {
+              segundos--;
+              if (segundos > 9) {
+                tempo.innerText = "00:" + segundos;
+              } else {
+                tempo.innerText = "00:0" + segundos;
+              }
+              contagem = setTimeout(menosUm, t);
+            } else {
+              acabou = true;
+              dica.innerText = "PERDEU!!!";
+            }
+          }
+        }
+      </script>
+    </main>
+  </body>
+</html>
