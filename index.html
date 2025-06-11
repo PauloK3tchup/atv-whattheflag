@@ -8,178 +8,193 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header id="fixos">
-      <h2 id="pontos"></h2>
-      <p class="tempo" id="tempo">00:30</p>
-      <p class="tents" id="tents">FALTAM 3 TENTATIVAS</p>
-      <p class="dica" id="dica">TENTE ADIVINHAR</p>
-    </header>
     <main>
-      <section id="telaInicial" class="jogar">
-        <h1>BEM VINDO AO JOGO!!</h1>
-        <button onclick="iniciarJogo()" id="jogarBtn">Jogar</button>
-      </section>
-      <section id="telaDerrota" class="derrota">
-        <h1 id="title-fim">VOCÊ PERDEU!!</h1>
-        <button onclick="window.location.reload()" id="jogarBtn">
-          Jogar Novamente
-        </button>
-      </section>
+      <div class="container">
+        <section id="fixos">
+          <h2 id="pontos"></h2>
+          <p class="tempo" id="tempo">00:30</p>
+          <p class="dica" id="dica">TENTE ADIVINHAR</p>
+          <p class="tents" id="tents">FALTAM 3 TENTATIVAS</p>
+        </section>
+        <section id="telaInicial" class="jogar">
+          <h1 class="title">BEM VINDO AO JOGO!!</h1>
+          <button class="btnJogo" onclick="iniciarJogo()" id="jogarBtn">
+            Jogar
+          </button>
+        </section>
+        <section id="telaDerrota" class="derrota">
+          <h1 class="title" id="title-fim">VOCÊ PERDEU!!</h1>
+          <button
+            class="btnJogo"
+            onclick="window.location.reload()"
+            id="jogarBtn">
+            Jogar Novamente
+          </button>
+        </section>
 
-      <section id="moedaSEC" class="moeda">
-        <h1 id="pergunta-moeda"></h1>
-        <div class="botoes">
-          <ul>
-            <li>
-              <button onclick="trocaNum(0)">
-                <img src="src/png/031-italy.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(1)">
-                <img src="src/png/025-argentina.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(2)">
-                <img src="src/png/027-united states of america.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(3)">
-                <img src="src/png/037-japan.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(4)">
-                <img src="src/png/033-china.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(5)">
-                <img src="src/png/038-south korea.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(6)">
-                <img src="src/png/026-india.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(7)">
-                <img src="src/png/018-philippines.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(8)">
-                <img src="src/png/028-thailand.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(9)">
-                <img src="src/png/012-egypt.png" alt="" />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section id="moedaSEC" class="moeda">
+          <h1 class="pergunta" id="pergunta-moeda"></h1>
+          <div class="botoes">
+            <ul>
+              <li>
+                <button onclick="trocaNum(0)">
+                  <img src="src/png/031-italy.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(1)">
+                  <img src="src/png/025-argentina.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(2)">
+                  <img src="src/png/027-united states of america.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(3)">
+                  <img src="src/png/037-japan.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(4)">
+                  <img src="src/png/033-china.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(5)">
+                  <img src="src/png/038-south korea.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(6)">
+                  <img src="src/png/026-india.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(7)">
+                  <img src="src/png/018-philippines.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(8)">
+                  <img src="src/png/028-thailand.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(9)">
+                  <img src="src/png/012-egypt.png" alt="" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
 
-      <section id="bandeiraSEC" class="bandeira">
-        <h1 id="pergunta-bandeira"></h1>
-        <img src="src/png/001-chile.png" id="foto-bandeira" alt="" />
-        <div class="botoes">
-          <ul>
-            <li>
-              <button onclick="trocaNum(0)">Itália</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(1)">Argentina</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(2)">Estados Unidos</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(3)">Japão</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(4)">China</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(5)">Coréia do Sul</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(6)">Índia</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(7)">Filipinas</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(8)">Tailândia</button>
-            </li>
-            <li>
-              <button onclick="trocaNum(9)">Egito</button>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section id="bandeiraSEC" class="bandeira">
+          <h1 class="pergunta" id="pergunta-bandeira"></h1>
+          <img
+            src="src/png/001-chile.png"
+            id="foto-bandeira"
+            class="foto-bandeira"
+            alt="" />
+          <div class="botoes">
+            <ul>
+              <li>
+                <button class="btnText" onclick="trocaNum(0)">Itália</button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(1)">Argentina</button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(2)">
+                  Estados Unidos
+                </button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(3)">Japão</button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(4)">China</button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(5)">
+                  Coréia do Sul
+                </button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(6)">Índia</button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(7)">Filipinas</button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(8)">Tailândia</button>
+              </li>
+              <li>
+                <button class="btnText" onclick="trocaNum(9)">Egito</button>
+              </li>
+            </ul>
+          </div>
+        </section>
 
-      <section id="idiomaSEC" class="idioma">
-        <h1 id="pergunta-idioma"></h1>
-        <div class="botoes">
-          <ul>
-            <li>
-              <button onclick="trocaNum(0)">
-                <img src="src/png/031-italy.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(1)">
-                <img src="src/png/025-argentina.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(2)">
-                <img src="src/png/027-united states of america.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(3)">
-                <img src="src/png/037-japan.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(4)">
-                <img src="src/png/033-china.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(5)">
-                <img src="src/png/038-south korea.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(6)">
-                <img src="src/png/026-india.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(7)">
-                <img src="src/png/018-philippines.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(8)">
-                <img src="src/png/028-thailand.png" alt="" />
-              </button>
-            </li>
-            <li>
-              <button onclick="trocaNum(9)">
-                <img src="src/png/012-egypt.png" alt="" />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section id="idiomaSEC" class="idioma">
+          <h1 class="pergunta" id="pergunta-idioma"></h1>
+          <div class="botoes">
+            <ul>
+              <li>
+                <button onclick="trocaNum(0)">
+                  <img src="src/png/031-italy.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(1)">
+                  <img src="src/png/025-argentina.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(2)">
+                  <img src="src/png/027-united states of america.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(3)">
+                  <img src="src/png/037-japan.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(4)">
+                  <img src="src/png/033-china.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(5)">
+                  <img src="src/png/038-south korea.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(6)">
+                  <img src="src/png/026-india.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(7)">
+                  <img src="src/png/018-philippines.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(8)">
+                  <img src="src/png/028-thailand.png" alt="" />
+                </button>
+              </li>
+              <li>
+                <button onclick="trocaNum(9)">
+                  <img src="src/png/012-egypt.png" alt="" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
       <script>
         let sec = Math.floor(Math.random() * 3) + 1;
         let numero = Math.floor(Math.random() * 10);
@@ -260,6 +275,7 @@
         const s5 = document.getElementById("telaDerrota");
 
         function iniciarJogo() {
+          document.getElementById("fixos").style.display = "block";
           sec = Math.floor(Math.random() * 3) + 1;
           numero = Math.floor(Math.random() * 10);
           s.style.display = "none";
@@ -325,8 +341,8 @@
           if (!acabou) {
             if (a !== numero) {
               dica.innerText = "ERRADO!";
-              t -= 200;
               document.getElementById("pontos").innerText = "PONTOS: " + pontos;
+              t -= 200;
             } else {
               document.getElementById("pontos").innerText = "PONTOS: " + pontos;
               dica.innerText = "CORRETO!!";
@@ -375,5 +391,8 @@
         }
       </script>
     </main>
+    <div class="tenna">
+      <img src="src/tenna/spr_tenna_dance_cabbage_big.gif" alt="" />
+    </div>
   </body>
 </html>

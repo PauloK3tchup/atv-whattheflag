@@ -2,16 +2,124 @@
   font-family: Delta;
   src: url("undertale-deltarune-text-font-extended.otf") format("opentype");
 }
-img {
-  width: 10%;
-}
 .moeda,
 .bandeira,
 .idioma,
-.derrota {
+.derrota,
+#fixos {
   display: none;
 }
 html {
   font-family: Delta;
   font-size: calc(15px + 0.390625vw);
+  overflow: hidden;
+  background-color: rgb(107, 107, 255);
+}
+
+img {
+  width: 10%;
+}
+main {
+  display: flex;
+  justify-content: center;
+}
+
+button.btnJogo {
+  background-color: rgb(74, 173, 255);
+  border: none;
+  color: white;
+  border: 3px solid white;
+  font-family: Delta;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  margin: 5% 0;
+  height: 100%;
+}
+
+div.container {
+  background-color: rgb(74, 173, 255);
+  color: white;
+  text-align: center;
+  width: 70%;
+  padding: 7%;
+  margin: 5%;
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px,
+    rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px,
+    rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+
+ul {
+  margin: 5% 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+li button {
+  margin: 10px;
+  border: none;
+  background: none;
+}
+
+li button img {
+  width: 80%;
+}
+
+button:hover {
+  transition: 0.15s;
+  transform: scale(1.2);
+}
+
+button:active {
+  transition: 0.15s;
+  transform: scale(0.8);
+}
+
+button.btnText {
+  background-color: rgb(74, 173, 255);
+  padding: 10%;
+  font-size: 0.8rem;
+  width: 100%;
+  height: 80%;
+  color: white;
+  font-family: Delta;
+  border: 3px solid white;
+}
+
+img.foto-bandeira {
+  width: 20%;
+  margin: 10px;
+}
+p.tempo {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+.pergunta {
+  padding: 10%;
+  margin: 10px;
+  line-height: 140%;
+  border: 3px solid white;
+}
+p.tents {
+  margin: 10px;
+}
+h1.title {
+  font-size: 1.5rem;
+  line-height: 150%;
+  margin: 10px;
+}
+
+div.tenna {
+  display: flex;
+  justify-content: center;
+}
+div.tenna img {
+  width: 80%;
+  margin: 20% 0;
 }
