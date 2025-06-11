@@ -8,16 +8,26 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <header id="fixos">
+      <h2 id="pontos"></h2>
+      <p class="tempo" id="tempo">00:30</p>
+      <p class="tents" id="tents">FALTAM 3 TENTATIVAS</p>
+      <p class="dica" id="dica">TENTE ADIVINHAR</p>
+    </header>
     <main>
-      <section id="jogar" class="jogar">
+      <section id="telaInicial" class="jogar">
         <h1>BEM VINDO AO JOGO!!</h1>
-        <button onclick="iniciarJogo()" id="jogar">Jogar</button>
+        <button onclick="iniciarJogo()" id="jogarBtn">Jogar</button>
       </section>
+      <section id="telaDerrota" class="derrota">
+        <h1 id="title-fim">VOCÊ PERDEU!!</h1>
+        <button onclick="window.location.reload()" id="jogarBtn">
+          Jogar Novamente
+        </button>
+      </section>
+
       <section id="moedaSEC" class="moeda">
-        <p class="tempo" id="tempo"></p>
-        <p class="dica" id="dica">TENTE ADIVINHAR!</p>
-        <h1 id="pergunta"></h1>
-        <p class="tents" id="tents"></p>
+        <h1 id="pergunta-moeda"></h1>
         <div class="botoes">
           <ul>
             <li>
@@ -73,11 +83,10 @@
           </ul>
         </div>
       </section>
+
       <section id="bandeiraSEC" class="bandeira">
-        <p class="tempo" id="tempo"></p>
-        <p class="dica" id="dica">TENTE ADIVINHAR!</p>
-        <h1 id="pergunta"></h1>
-        <p class="tents" id="tents"></p>
+        <h1 id="pergunta-bandeira"></h1>
+        <img src="src/png/001-chile.png" id="foto-bandeira" alt="" />
         <div class="botoes">
           <ul>
             <li>
@@ -113,11 +122,9 @@
           </ul>
         </div>
       </section>
+
       <section id="idiomaSEC" class="idioma">
-        <p class="tempo" id="tempo"></p>
-        <p class="dica" id="dica">TENTE ADIVINHAR!</p>
-        <h1 id="pergunta"></h1>
-        <p class="tents" id="tents"></p>
+        <h1 id="pergunta-idioma"></h1>
         <div class="botoes">
           <ul>
             <li>
@@ -175,179 +182,194 @@
       </section>
       <script>
         let sec = Math.floor(Math.random() * 3) + 1;
-        let guia = {
-          pais: "Teste",
-          moeda: "Moeda",
-          idioma: "Idioma",
-          bandeira: "Bandeira",
-        };
+        let numero = Math.floor(Math.random() * 10);
+        let acertos = 0;
+        let t = 1000;
+        let segundos = 30;
+        let acabou = false;
+        let contagem;
+        let pontos = 0;
 
-        let m = [
+        const m = [
           {
             pais: "Itália",
             moeda: "Euro",
             idioma: "Italiano",
+            img: "src/png/031-italy.png",
           },
           {
             pais: "Argentina",
             moeda: "Peso",
             idioma: "Espanhol",
+            img: "src/png/025-argentina.png",
           },
           {
             pais: "Estados Unidos",
             moeda: "Dólar",
             idioma: "Inglês",
+            img: "src/png/027-united states of america.png",
           },
           {
             pais: "Japão",
             moeda: "Iene",
             idioma: "Japonês",
+            img: "src/png/037-japan.png",
           },
           {
             pais: "China",
             moeda: "Yuan",
             idioma: "Mandarin",
+            img: "src/png/033-china.png",
           },
           {
             pais: "Coréia do Sul",
             moeda: "Won",
             idioma: "Coreano",
+            img: "src/png/038-south korea.png",
           },
           {
             pais: "Índia",
             moeda: "Rupia",
             idioma: "Hindi",
+            img: "src/png/026-india.png",
           },
           {
             pais: "Filipinas",
             moeda: "Peso Filipino",
             idioma: "Filipino",
+            img: "src/png/018-philippines.png",
           },
           {
             pais: "Tailândia",
             moeda: "Baht",
-            idioma: "Tainlandês",
+            idioma: "Tailandês",
+            img: "src/png/028-thailand.png",
           },
           {
             pais: "Egito",
             moeda: "Libra",
             idioma: "Árabe",
+            img: "src/png/012-egypt.png",
           },
         ];
 
-        let numero = Math.floor(Math.random() * 10);
-        let dica = document.getElementById("dica");
-        let tempo = document.getElementById("tempo");
-        let tents = document.getElementById("tents");
-        let pergunta = document.getElementById("pergunta");
-        let s = document.getElementById("jogar");
-        let s2 = document.getElementById("moedaSEC");
-        let s3 = document.getElementById("bandeiraSEC");
-        let s4 = document.getElementById("idiomaSEC");
-        s2.style.display = "none";
-        s3.style.display = "none";
-        s4.style.display = "none";
-        let acertos = 0;
-        let t = 1000;
-        let segundos = 30;
-        acabou = false;
+        const s = document.getElementById("telaInicial");
+        const s2 = document.getElementById("moedaSEC");
+        const s3 = document.getElementById("bandeiraSEC");
+        const s4 = document.getElementById("idiomaSEC");
+        const s5 = document.getElementById("telaDerrota");
 
         function iniciarJogo() {
           sec = Math.floor(Math.random() * 3) + 1;
-          switch (sec) {
-            case 1:
-              s.style.display = "none";
-              s2.style.display = "block";
-              s3.style.display = "none";
-              s4.style.display = "none";
-              break;
-            case 2:
-              s.style.display = "none";
-              s2.style.display = "noone";
-              s3.style.display = "block";
-              s4.style.display = "none";
-              break;
-            case 3:
-              s.style.display = "none";
-              s2.style.display = "none";
-              s3.style.display = "none";
-              s4.style.display = "block";
-              break;
+          numero = Math.floor(Math.random() * 10);
+          s.style.display = "none";
+          s2.style.display = "none";
+          s3.style.display = "none";
+          s4.style.display = "none";
+          s5.style.display = "none";
+
+          let tempo, dica, pergunta, tents;
+
+          if (sec === 1) {
+            s2.style.display = "block";
+            tempo = document.getElementById("tempo");
+            dica = document.getElementById("dica-moeda");
+            pergunta = document.getElementById("pergunta-moeda");
+            tents = document.getElementById("tents");
+            pergunta.innerText = "DE QUE PAÍS É A MOEDA: " + m[numero].moeda;
+            document.getElementById("pontos").innerText = "PONTOS: " + pontos;
+          } else if (sec === 2) {
+            s3.style.display = "block";
+            tempo = document.getElementById("tempo");
+            dica = document.getElementById("dica-bandeira");
+            pergunta = document.getElementById("pergunta-bandeira");
+            tents = document.getElementById("tents");
+            pergunta.innerText = "DE QUE PAÍS É A BANDEIRA: ";
+            document.getElementById("foto-bandeira").src = m[numero].img;
+            document.getElementById("pontos").innerText = "PONTOS: " + pontos;
+          } else {
+            s4.style.display = "block";
+            tempo = document.getElementById("tempo");
+            dica = document.getElementById("dica-idioma");
+            pergunta = document.getElementById("pergunta-idioma");
+            tents = document.getElementById("tents");
+            pergunta.innerText =
+              "QUE PAÍS SE FALA O IDIOMA: " + m[numero].idioma;
+            document.getElementById("pontos").innerText = "PONTOS: " + pontos;
           }
-          let contagem = setTimeout(menosUm, t);
+
           tempo.innerText = "00:" + segundos;
-          console.log(sec);
-          pergunta.innerText = "BANDEIRA DO PAÍS: " + m[numero].pais;
+          contagem = setTimeout(() => menosUm(tempo, dica), t);
         }
 
         function trocaNum(a) {
+          let tempo, dica, pergunta, tents;
+
+          if (sec === 1) {
+            tempo = document.getElementById("tempo");
+            dica = document.getElementById("dica");
+            pergunta = document.getElementById("pergunta-moeda");
+            tents = document.getElementById("tents");
+          } else if (sec === 2) {
+            tempo = document.getElementById("tempo");
+            dica = document.getElementById("dica");
+            pergunta = document.getElementById("pergunta-bandeira");
+            tents = document.getElementById("tents");
+          } else {
+            tempo = document.getElementById("tempo");
+            dica = document.getElementById("dica");
+            pergunta = document.getElementById("pergunta-idioma");
+            tents = document.getElementById("tents");
+          }
+
           if (!acabou) {
-            if (a != numero) {
+            if (a !== numero) {
               dica.innerText = "ERRADO!";
               t -= 200;
+              document.getElementById("pontos").innerText = "PONTOS: " + pontos;
             } else {
+              document.getElementById("pontos").innerText = "PONTOS: " + pontos;
               dica.innerText = "CORRETO!!";
               numero = Math.floor(Math.random() * 10);
-              console.log(numero);
               acertos++;
-              sec = Math.floor(Math.random() * 3) + 1;
-              switch (sec) {
-                case 1:
-                  s.style.display = "none";
-                  s2.style.display = "block";
-                  s3.style.display = "none";
-                  s4.style.display = "none";
-                  break;
-                case 2:
-                  s.style.display = "none";
-                  s2.style.display = "noone";
-                  s3.style.display = "block";
-                  s4.style.display = "none";
-                  break;
-                case 3:
-                  s.style.display = "none";
-                  s2.style.display = "none";
-                  s3.style.display = "none";
-                  s4.style.display = "block";
-                  break;
-              }
-              tents.innerText = "FALTAM [" + (3 - acertos) + "] ACERTOS!!!";
-              pergunta.innerText = "BANDEIRA DO PAÍS: " + m[numero].pais;
-              if (sec == 2) {
-                pergunta.innerText =
-                  "DE QUE PAÍS É A MOEDA: " + m[numero].moeda;
-              } else if (sec == 3) {
-                pergunta.innerText =
-                  "QUE PAÍS SE FALA O IDIOMA: " + m[numero].idioma;
-              }
+              tents.innerText = "FALTAM " + (3 - acertos) + " ACERTOS!!!";
+              pontos += (100 * segundos) / 10;
               if (acertos >= 3) {
+                pontos += (100 * segundos) / 10;
+                document.getElementById("pontos").innerText =
+                  "PONTOS: " + pontos;
                 acabou = true;
-                dica.innerText = "VENCEU!!!";
                 segundos = 0;
-                tempo.innerText = "00:0" + segundos;
-                pergunta.innerText = "PARABÉNS";
+                s.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "block";
+                document.getElementById("title-fim").innerText =
+                  "PARABÉNS! VOCÊ VENCEU!!";
+                return;
               }
+              iniciarJogo();
             }
           }
         }
 
-        function musiPam() {
-          document.getElementById("bigshot").play();
-        }
-
-        function menosUm() {
+        function menosUm(tempo, dica) {
           if (!acabou) {
             if (segundos > 0) {
               segundos--;
-              if (segundos > 9) {
-                tempo.innerText = "00:" + segundos;
-              } else {
-                tempo.innerText = "00:0" + segundos;
-              }
-              contagem = setTimeout(menosUm, t);
+              tempo.innerText =
+                "00:" + (segundos > 9 ? segundos : "0" + segundos);
+              contagem = setTimeout(() => menosUm(tempo, dica), t);
             } else {
               acabou = true;
-              dica.innerText = "PERDEU!!!";
+              s.style.display = "none";
+              s2.style.display = "none";
+              s3.style.display = "none";
+              s4.style.display = "none";
+              s5.style.display = "block";
+              document.getElementById("title-fim").innerText = "VOCÊ PERDEU!!";
+              document.getElementById("pontos").innerText = "PONTOS: " + pontos;
             }
           }
         }

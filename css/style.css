@@ -5,3 +5,13 @@
 img {
   width: 10%;
 }
+.moeda,
+.bandeira,
+.idioma,
+.derrota {
+  display: none;
+}
+html {
+  font-family: Delta;
+  font-size: calc(15px + 0.390625vw);
+}
