@@ -139,5 +139,121 @@ html {
 @media (min-width: 900px) {
   html {
     overflow: hidden;
+    background-image: url("../src/fundo.png");
+    background-size: cover;
+  }
+  div.tenna {
+    position: absolute;
+    top: 8%;
+    left: 58%;
+    width: 40%;
+    height: 90%;
+  }
+  div.tenna img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  img {
+    width: 10%;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+  }
+
+  button.btnJogo {
+    background-color: rgb(74, 173, 255);
+    border: none;
+    color: white;
+    border: 3px solid white;
+    font-family: Delta;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    margin: 5% 0;
+    height: 100%;
+  }
+
+  div.container {
+    background-color: rgb(74, 173, 255);
+    color: white;
+    width: 50%;
+    padding: 4%;
+    margin: 5% 10% 5% 5%;
+  }
+
+  ul {
+    margin: 5% 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+  }
+
+  li {
+    width: 20%;
+  }
+
+  li button {
+    margin: 10px;
+    border: none;
+    background: none;
+  }
+
+  li button img {
+    width: 30%;
+  }
+
+  button:hover {
+    transition: 0.15s;
+    transform: scale(1.2);
+  }
+
+  button:active {
+    transition: 0.15s;
+    transform: scale(0.8);
+  }
+
+  li.btnText {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+  }
+
+  button.btnText {
+    background-color: rgb(74, 173, 255);
+    padding: 2%;
+    font-size: 0.7rem;
+    color: white;
+    font-family: Delta;
+    border: 3px solid white;
+    width: 100%;
+    height: 80%;
+  }
+
+  img.foto-bandeira {
+    width: 5%;
+    margin: 10px 15px;
+  }
+  p.tempo {
+    font-size: 2rem;
+    margin: 20px 0;
+  }
+
+  .pergunta {
+    padding: 3%;
+    margin: 10px;
+    line-height: 140%;
+    border: 3px solid white;
+  }
+  p.tents {
+    margin: 10px;
+  }
+  h1.title {
+    font-size: 1.5rem;
+    line-height: 150%;
+    margin: 10px;
   }
 }
