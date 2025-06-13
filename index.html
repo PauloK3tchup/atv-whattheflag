@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WHAT THE FLAG??</title>
+    <script
+      src="https://kit.fontawesome.com/939df3a7fe.js"
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -194,6 +197,9 @@
             </ul>
           </div>
         </section>
+        <button onclick="mutaSom()" id="btn-vol" class="vol">
+          <span class="fa-solid fa-volume-high"></span>
+        </button>
       </div>
       <script>
         let sec = Math.floor(Math.random() * 3) + 1;
@@ -204,7 +210,40 @@
         let acabou = false;
         let contagem;
         let pontos = 0;
+        let som = true;
 
+        let som_v = new Audio();
+        som_v.src = "src/snd/victory.mp3";
+        let errado = new Audio();
+        errado.src = "src/snd/wrong-answer-buzzer.mp3";
+        let certo = new Audio();
+        certo.src = "src/snd/correct-answer-ff.mp3";
+        let boom = new Audio();
+        boom.src = "src/snd/deltarune-explosion.mp3";
+        let fundo = new Audio();
+        fundo.src = "src/snd/fundo.mp3";
+
+        function mutaSom() {
+          if (som) {
+            document.getElementById("btn-vol").innerHTML =
+              '<span class="fa-solid fa-volume-xmark"></span>';
+            som = false;
+            som_v.volume = 0;
+            errado.volume = 0;
+            certo.volume = 0;
+            boom.volume = 0;
+            fundo.volume = 0;
+          } else {
+            document.getElementById("btn-vol").innerHTML =
+              '<span class="fa-solid fa-volume-high"></span>';
+            som = true;
+            som_v.volume = 1;
+            errado.volume = 1;
+            certo.volume = 1;
+            boom.volume = 1;
+            fundo.volume = 1;
+          }
+        }
         const m = [
           {
             pais: "Itália",
@@ -275,6 +314,8 @@
         const s5 = document.getElementById("telaDerrota");
 
         function iniciarJogo() {
+          document.getElementById("tenna").src = "src/tenna/tenna_pergunta.png";
+          fundo.play();
           document.getElementById("fixos").style.display = "block";
           sec = Math.floor(Math.random() * 3) + 1;
           numero = Math.floor(Math.random() * 10);
@@ -340,10 +381,14 @@
 
           if (!acabou) {
             if (a !== numero) {
+              errado.currentTime = 0;
+              errado.play();
               dica.innerText = "ERRADO!";
               document.getElementById("pontos").innerText = "PONTOS: " + pontos;
               t -= 200;
             } else {
+              certo.currentTime = 0;
+              certo.play();
               document.getElementById("pontos").innerText = "PONTOS: " + pontos;
               dica.innerText = "CORRETO!!";
               numero = Math.floor(Math.random() * 10);
@@ -363,6 +408,14 @@
                 s5.style.display = "block";
                 document.getElementById("title-fim").innerText =
                   "PARABÉNS! VOCÊ VENCEU!!";
+                certo.currentTime = 0;
+                certo.pause();
+                fundo.pause();
+                fundo.currentTime = 0;
+                som_v.currentTime = 0;
+                som_v.play();
+                document.getElementById("tenna").src =
+                  "src/tenna/spr_tenna_dance_cane_big.gif";
                 return;
               }
               iniciarJogo();
@@ -386,13 +439,19 @@
               s5.style.display = "block";
               document.getElementById("title-fim").innerText = "VOCÊ PERDEU!!";
               document.getElementById("pontos").innerText = "PONTOS: " + pontos;
+              fundo.pause();
+              fundo.currentTime = 0;
+              boom.currentTime = 0;
+              boom.play();
+              document.getElementById("tenna").src =
+                "src/tenna/spr_tenna_grasp_anim_big.gif";
             }
           }
         }
       </script>
     </main>
     <div class="tenna">
-      <img src="src/tenna/spr_tenna_dance_cabbage_big.gif" alt="" />
+      <img id="tenna" src="src/tenna/spr_tenna_dance_cabbage_big.gif" alt="" />
     </div>
   </body>
 </html>
