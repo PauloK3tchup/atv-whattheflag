@@ -390,10 +390,10 @@
               certo.currentTime = 0;
               certo.play();
               document.getElementById("pontos").innerText = "PONTOS: " + pontos;
-              dica.innerText =
-                "CORRETO!! FALTAM " + (3 - acertos) + " ACERTOS!!!";
               numero = Math.floor(Math.random() * 10);
               acertos++;
+              dica.innerText =
+                "CORRETO!! FALTAM " + (3 - acertos) + " ACERTOS!!!";
               pontos += (100 * segundos) / 10;
               if (acertos >= 3) {
                 pontos += (100 * segundos) / 10;
